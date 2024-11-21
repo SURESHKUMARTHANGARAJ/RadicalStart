@@ -302,13 +302,16 @@ form input,form select{
   outline: none;
   width: 100%;
   font-size: 16px;
-  font-weight: 500;
 }
 form input::placeholder{
+  font-weight:400;
   color: rgb(197, 197, 197);
 }
 form select::placeholder{
   font-weight: 400;
+}
+.text-small{
+  font-size: 14px !important;
 }
 label span{
   color: red;

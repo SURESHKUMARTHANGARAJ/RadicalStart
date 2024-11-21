@@ -1,5 +1,5 @@
 import React from 'react';
-import profile from '../assets/image/profile.jpg';
+import profile from '../../assets/image/profile.jpg';
 
 const Camera = ({ preview }) => {
 

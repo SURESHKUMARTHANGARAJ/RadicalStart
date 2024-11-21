@@ -37,6 +37,8 @@ exports.addEmployee = async (req, res) => {
     const image = req.file ? req.file.path : null;
 
     try {
+        const employee = await Employee.findByPk(id)
+        if(employee) return res.status(400).json({message:"Employee id Must Be Unique"});
         const newEmployee = await Employee.create({
             id,
             name,

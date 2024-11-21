@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { IoIosArrowBack } from "react-icons/io";
-import { HiMiniUser } from "react-icons/hi2";
+import { useParams } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Sidebar from '../components/Sidebar';
-import CameraPrev from '../components/CameraPrev';
-import DetailView from '../components/DetailView';
+import CameraPrev from '../components/ViewEmployee/CameraPrev';
+import DetailView from '../components/ViewEmployee/DetailView';
+import PersonalInfoSection from '../components/UpdateEmployee/PersonalInfoSection';
+import Title from '../components/UpdateEmployee/Title';
 
 const UpdateEmployee = () => {
   const { id } = useParams(); 
-  const navigate = useNavigate();
   const [employee,setEmployee] = useState({});
   const [preview, setPreview] = useState(null);
 
@@ -42,16 +41,10 @@ const UpdateEmployee = () => {
       <Nav />
       <Sidebar />
       <main id="AddEmployee">
-        <div className="title">
-          <IoIosArrowBack className="back-btn" onClick={() => navigate(-1)} />
-          <h2> View Employee Details</h2>
-        </div>
+        <Title label={"View Employee Details"} />
         <div className="row view">
             <form>
-            <div className="personal">
-                <HiMiniUser className='personal-icon'/>
-                Personal Information
-            </div>
+            <PersonalInfoSection />
             </form>
             <CameraPrev preview={preview} />
             <DetailView label={'Name'} data={employee.name} />
