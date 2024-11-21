@@ -8,14 +8,14 @@ import { GlobalContext } from '../Context/GlobalContext';
 
 const Sidebar = () => {
 
-  const {activeLink,setActiveLink} = useContext(GlobalContext);
+  const {activeLink,setActiveLink,isOpen} = useContext(GlobalContext);
 
   const handleLinkClick = (e,link) => {
-    setActiveLink(link); // Update active link on click
+    setActiveLink(link); 
   };
 
   return (
-    <aside>
+    <aside className={isOpen?"active":""}>
       <div className='title'>
         <p className='text-primary'>RS-TECH</p>
       </div>

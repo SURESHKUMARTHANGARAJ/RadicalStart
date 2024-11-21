@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Nav from '../components/Nav'
 import Sidebar from '../components/Sidebar'
+import { GlobalContext } from '../Context/GlobalContext'
 
 const Messages = () => {
+
+  const {isOpen} = useContext(GlobalContext)
   return (
-    <div className='grid-container'>
+    <div className={isOpen?"grid-container active":"grid-container"}>
       <Nav />
       <Sidebar />
       <main className='not-available'>

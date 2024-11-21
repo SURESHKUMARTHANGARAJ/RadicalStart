@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -7,34 +8,34 @@
 }
 
 ::-webkit-scrollbar {
-  width: 8px; 
-  height: 2px; 
+  width: 8px;
+  height: 2px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(192, 192, 192); 
-  border-radius: 10px; 
+  background-color: rgb(192, 192, 192);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: transparent; 
+  background-color: transparent;
 }
 
-.grid-container{
+.grid-container {
   width: 100%;
   height: 100vh;
   display: grid;
   grid-template-areas: 'aside nav nav nav'
-                       'aside main main main';
+    'aside main main main';
   grid-template-columns: 300px 1fr 1fr 1fr;
 }
 
-main{
+main {
   grid-area: main;
   overflow-y: scroll !important;
 }
 
-.not-available{
+.not-available {
   padding: 0;
   margin: 0;
   display: flex;
@@ -44,13 +45,15 @@ main{
   width: 100%;
 }
 
-aside{
+/* ********* SIdeBar ************************* */
+aside {
   grid-area: aside;
   background-color: rgb(248, 248, 248);
   height: 100vh;
   border-right: 2px solid rgb(233, 230, 230);
 }
-aside > .title{
+
+aside>.title {
   height: 80px;
   border-bottom: 2px solid rgb(233, 230, 230);
   display: flex;
@@ -58,19 +61,21 @@ aside > .title{
   align-items: center;
   padding-left: 40px;
 
-  p{
+  p {
     margin: auto 0px;
     font-size: 27px;
     line-height: 27px;
     font-weight: 700;
   }
 }
-.nav-links{
+
+.nav-links {
   display: flex;
   flex-direction: column;
   padding: 30px 50px 0px 0px;
 }
-.nav-link{
+
+.nav-link {
   color: rgb(161, 161, 161);
   padding-top: 15px !important;
   padding-bottom: 15px !important;
@@ -83,40 +88,57 @@ aside > .title{
   flex-direction: row;
   flex-wrap: nowrap;
 }
-.nav-link:hover{
+
+.nav-link:hover {
   color: rgb(161, 161, 161) !important;
 }
-.icon{
+
+.icon {
   color: rgb(117, 116, 116);
   height: 20px;
   width: 20px;
   margin-right: 10px !important;
 }
-.nav-link.active{
+
+.nav-link.active {
   background-color: rgb(20, 154, 207);
   color: white !important;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
-  
-  .icon{
+
+  .icon {
     color: white;
   }
 }
 
-nav{
+/* *********** Navigation bar ************************* */
+nav {
   grid-area: nav;
   border-bottom: 2px solid rgb(233, 230, 230);
   height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0px 40px;
+}
+
+.icons {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: row;
   flex-wrap: nowrap;
   gap: 15px;
-  padding: 0px 40px;
+
 }
 
-.icon-container{
+.toggled-icon {
+  color: black;
+  font-size: 25px;
+  display: none;
+}
+
+.icon-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,12 +149,13 @@ nav{
   border-radius: 50%;
 }
 
-nav > .img-container{
+.icons>.img-container {
   height: 40px;
   width: 40px;
   border-radius: 50%;
   overflow: hidden;
-  img{
+
+  img {
     width: 100%;
     height: 100%;
   }
@@ -140,22 +163,25 @@ nav > .img-container{
 
 /* *****************************************************  */
 
-#Employee{
+#Employee {
   padding: 20px;
   display: block;
   flex-wrap: wrap;
   width: 100%;
   height: calc(100vh - 80px);
 }
-#Employee .main-header{
+
+#Employee .main-header {
   width: 100%;
-  height: 80px;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: 20px 0px;
 }
-.main-header button{
+
+.main-header button {
   background-color: #0d6efd;
   outline: none;
   border: none;
@@ -166,13 +192,15 @@ nav > .img-container{
   border-radius: 10px;
   flex-direction: row;
   gap: 8px;
-  padding:10px 12px !important;
+  padding: 10px 12px !important;
   line-height: auto;
 }
-.add-icon{
+
+.add-icon {
   font-size: 25px;
 }
-.search-container{
+
+.search-container {
   position: relative;
   border: 2px solid rgb(224, 224, 224);
   border-radius: 10px;
@@ -180,7 +208,8 @@ nav > .img-container{
   width: 250px;
   height: 45px;
 }
-.search-icon{
+
+.search-icon {
   color: rgb(136, 136, 136);
   top: 50%;
   left: 10px;
@@ -189,83 +218,96 @@ nav > .img-container{
   height: 20px;
   width: 20px;
 }
-.search{
+
+.search {
   position: absolute;
-  top: 50%;left: 0;
+  top: 50%;
+  left: 0;
   transform: translateY(-50%);
   padding-left: 40px;
   background-color: transparent;
   border: none;
   color: rgb(136, 136, 136);
 }
-.search::placeholder{
+
+.search::placeholder {
   color: rgb(136, 136, 136);
 }
 
-.search:focus{
+.search:focus {
   background-color: transparent;
   border: none;
   box-shadow: none;
 }
 
-.right-box{
+.right-box {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 15px;
 }
-.table-outer{
+
+.table-outer {
   margin-top: 20px;
-  padding:0px 10px;
+  padding: 0px 10px;
   width: 100%;
   height: auto;
   border: 2px solid rgb(226, 226, 226);
   border-radius: 10px;
 }
-table{
+
+table {
   width: 100%;
   height: auto;
   overflow-x: scroll;
 }
-thead{
-  border-bottom-width:2px ;
-  border-bottom-color: rgb(226, 226, 226) ;
+
+thead {
+  border-bottom-width: 2px;
+  border-bottom-color: rgb(226, 226, 226);
 }
-td,tbody{
+
+td, tbody {
   border-bottom-color: transparent !important;
 }
-table th{
+
+table th {
   font-weight: 600 !important;
   color: rgb(138, 138, 138) !important;
   border-color: rgb(226, 226, 226);
 }
-tbody td.no-record{
+
+tbody td.no-record {
   height: 200px;
   color: black;
 }
-td,th{
+
+td, th {
   padding: 15px 0px !important;
 }
-td{
+
+td {
   font-size: 14px;
 }
-td img{
+
+td img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
 }
-.action .action-icon{
+
+.action .action-icon {
   display: inline-block;
   font-size: 22px;
-  margin-right: 8px;   
+  margin-right: 8px;
   cursor: pointer;
 }
 
 
 /* ********************************************  */
 
-#AddEmployee{
+#AddEmployee {
   padding: 20px;
   display: flex;
   justify-content: start;
@@ -276,25 +318,28 @@ td img{
   height: calc(100vh - 80px);
   overflow-y: scroll;
 }
-#AddEmployee .title{
+
+#AddEmployee .title {
   display: flex;
   align-items: center !important;
   width: 100%;
   height: 60px;
   gap: 10px;
 }
-.title h2{
+
+.title h2 {
   margin: 0px !important;
   font-weight: 600;
 }
-.back-btn{
+
+.back-btn {
   cursor: pointer;
   font-size: 40px;
   line-height: 40px;
   font-weight: 600;
 }
 
-form input,form select{
+form input, form select {
   border: none;
   border: 2px solid rgb(233, 230, 230) !important;
   border-radius: 10px !important;
@@ -303,26 +348,32 @@ form input,form select{
   width: 100%;
   font-size: 16px;
 }
-form input::placeholder{
-  font-weight:400;
+
+form input::placeholder {
+  font-weight: 400;
   color: rgb(197, 197, 197);
 }
-form select::placeholder{
+
+form select::placeholder {
   font-weight: 400;
 }
-.text-small{
+
+.text-small {
   font-size: 14px !important;
 }
-label span{
+
+label span {
   color: red;
 }
-label{
+
+label {
   width: 100%;
   font-size: 17px;
   font-weight: 600;
   padding: 20px 0px 8px 0px;
 }
-.personal{
+
+.personal {
   font-size: 16px;
   font-weight: 500;
   padding: 10px 3px;
@@ -334,10 +385,12 @@ label{
   gap: 10px;
 
 }
-.personal-icon{
+
+.personal-icon {
   font-size: 22px;
 }
-.img-cont{
+
+.img-cont {
   margin-top: 30px;
   display: inline-block;
   background-color: transparent;
@@ -348,20 +401,23 @@ label{
   position: relative;
   overflow: hidden;
 }
-.camera{
+
+.camera {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   font-size: 16px;
   cursor: pointer;
 }
-.edit{
+
+.edit {
   cursor: pointer;
   font-size: 16px;
   color: white !important;
 }
-.edit-cont{
+
+.edit-cont {
   border-radius: 50%;
   position: absolute;
   bottom: 4px !important;
@@ -373,14 +429,16 @@ label{
   align-items: center;
   background-color: #0d6efd;
 }
-.img-cont img{
+
+.img-cont img {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
 }
-.button-group{
+
+.button-group {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -389,58 +447,62 @@ label{
   margin-bottom: 50px;
   padding-right: 10px;
 }
-.button-group button{
+
+.button-group button {
   outline: none;
   border: none;
   padding: 12px 15px;
   font-size: 15px;
   font-weight: 600;
 }
-.cancel{
+
+.cancel {
   border-radius: 10px;
   border: 1px solid rgb(233, 230, 230) !important;
   background-color: transparent !important;
-  color:black;
+  color: black;
 }
-.submit{
+
+.submit {
   border-radius: 10px;
   border: none;
-  color:white;
+  color: white;
   background-color: #0d6efd;
 }
-.cancel:hover{
+
+.cancel:hover {
   border: none;
   background-color: #0d6efd !important;
   color: white;
 }
-.cols{
+
+.cols {
   border-bottom: 1px solid rgb(233, 230, 230);
 }
-.view .label{
+
+.view .label {
   padding-top: 10px;
   font-size: 14px;
   font-weight: 500;
   color: rgb(163, 163, 163);
   line-height: 22px;
 }
-.view .data{
+
+.view .data {
   font-size: 15px;
   color: rgb(41, 41, 41);
   line-height: 20px;
 }
 
 
-
-
-
-/* Employee.css */
+/* ************** Overlay ************************* */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* 40% opacity black overlay */
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -454,13 +516,15 @@ label{
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   width: 300px;
   overflow: hidden;
-  p{
+
+  p {
     padding: 30px;
-    font-size: 20px ;
+    font-size: 20px;
     font-weight: 500;
   }
 }
-.popup-icon{
+
+.popup-icon {
   margin-top: 30px;
   width: 100%;
   text-align: center;
@@ -490,4 +554,92 @@ label{
 .submit-btn {
   background-color: rgb(12, 162, 207);
   color: white;
+}
+
+
+/* ********************************************************************* */
+@media screen and (max-width:768px) {
+
+  .grid-container {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 'aside nav nav nav'
+      'aside main main main';
+    grid-template-columns: 0px 1fr 1fr 1fr;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .grid-container.active {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 'aside nav'
+      'aside main';
+    grid-template-columns: 300px 1fr;
+    overflow-x: hidden;
+
+  }
+
+  aside {
+    display: none;
+  }
+
+  aside.active {
+    display: inline;
+  }
+
+  table {
+    min-width: 900px;
+    overflow-y: scroll;
+  }
+
+  .main-header.active {
+    overflow: hidden;
+    width: 100%;
+    height: auto !important;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: start !important;
+    align-items: start !important;
+  }
+
+  .main-header.active .right-box {
+    flex-direction: column !important;
+    justify-content: start !important;
+    align-items: start !important;
+  }
+
+  .toggled-icon {
+    display: inline;
+  }
+
+  nav {
+    justify-content: space-between;
+  }
+}
+
+
+/* **************************************************** */
+@media screen and (max-width:425px) {
+  nav {
+    min-width: 320px;
+    overflow: hidden;
+  }
+
+  .main-header {
+    overflow: hidden;
+    width: 100%;
+    height: auto !important;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: start !important;
+    align-items: start !important;
+  }
+
+  .main-header .right-box {
+    flex-direction: column !important;
+    justify-content: start !important;
+    align-items: start !important;
+  }
 }

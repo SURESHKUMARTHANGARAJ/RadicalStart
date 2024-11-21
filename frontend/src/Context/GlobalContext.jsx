@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 export const GlobalContext = createContext();
 
 const ContextProvider = ({ children }) => {
+  const [isOpen,setIsOpen] = useState(false);
   const [refreshKey,setRefreshKey] = useState(0);
   const navigate = useNavigate();
   const [updateId, setUpdateId] = useState(null);
@@ -14,7 +15,10 @@ const ContextProvider = ({ children }) => {
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState({});
 
-  // Fetch employee data on component mount
+  const handleToggle = ()=>{
+    setIsOpen(!isOpen)
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -185,6 +189,8 @@ const ContextProvider = ({ children }) => {
         handleSearchChange,
         onSubmit,
         handleAdd,
+        isOpen,
+        handleToggle
       }}
     >
       {children}

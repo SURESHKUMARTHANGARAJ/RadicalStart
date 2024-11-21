@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Nav from '../components/Nav';
 import Sidebar from '../components/Sidebar';
@@ -6,8 +6,10 @@ import CameraPrev from '../components/ViewEmployee/CameraPrev';
 import DetailView from '../components/ViewEmployee/DetailView';
 import PersonalInfoSection from '../components/UpdateEmployee/PersonalInfoSection';
 import Title from '../components/UpdateEmployee/Title';
+import { GlobalContext } from '../Context/GlobalContext';
 
 const UpdateEmployee = () => {
+  const {isOpen} = useContext(GlobalContext);
   const { id } = useParams(); 
   const [employee,setEmployee] = useState({});
   const [preview, setPreview] = useState(null);
@@ -37,7 +39,7 @@ const UpdateEmployee = () => {
   }, [id]);
 
   return (
-    <div className="grid-container">
+    <div className={isOpen?"grid-container active":"grid-container"}>
       <Nav />
       <Sidebar />
       <main id="AddEmployee">

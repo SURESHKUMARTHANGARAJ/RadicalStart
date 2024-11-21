@@ -10,16 +10,16 @@ import Table from "../components/Employee/Table";
 
 const Employee = () => {
   const navigate = useNavigate();
-  const { handleDeleteClick, searchInput, searchResult, handleSearchChange} =
+  const { handleDeleteClick, searchInput, searchResult, handleSearchChange,isOpen} =
     useContext(GlobalContext);
   
 
   return (
-    <div className="grid-container">
+    <div className={isOpen?"grid-container active":"grid-container"}>
       <Nav />
       <Sidebar />
       <main id="Employee">
-        <div className="main-header">
+        <div className={isOpen?"main-header active":"main-header"}>
           <h3 className="fw-bold">Employee</h3>
           <div className="right-box">
             <div className="search-container">

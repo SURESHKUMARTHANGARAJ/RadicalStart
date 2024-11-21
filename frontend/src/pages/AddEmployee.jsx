@@ -9,13 +9,12 @@ import PersonalInfoSection from '../components/UpdateEmployee/PersonalInfoSectio
 import AddForm from '../components/AddEmployee/AddForm';
 
 const AddEmployee = () => {
-  const {handleAdd} = useContext(GlobalContext);
+  const {handleAdd,isOpen} = useContext(GlobalContext);
   const { register, handleSubmit, setValue, formState: { errors }, reset } = useForm();
   const [preview, setPreview] = useState(null);
 
 
   const handleFileChange = (file) => {
-    // Update the file field in the form
     setValue('file', file ? [file] : [], { shouldValidate: true });
   };
 
@@ -25,7 +24,7 @@ const AddEmployee = () => {
   };
 
   return (
-    <div className="grid-container">
+    <div className={isOpen?"grid-container active":"grid-container"}>
       <Nav />
       <Sidebar />
       <main id="AddEmployee">

@@ -10,7 +10,7 @@ import PersonalInfoSection from '../components/UpdateEmployee/PersonalInfoSectio
 import EmployeeForm from '../components/UpdateEmployee/EmployeeForm';
 
 const UpdateEmployee = () => {
-  const { onSubmit,setUpdateId } = useContext(GlobalContext);
+  const { onSubmit,setUpdateId,isOpen } = useContext(GlobalContext);
   const { id } = useParams();
   const [preview, setPreview] = useState(null);
   const { register, handleSubmit, setValue, formState: { errors }, reset } = useForm();
@@ -56,7 +56,7 @@ const UpdateEmployee = () => {
   };
 
   return (
-    <div className="grid-container">
+    <div className={isOpen?"grid-container active":"grid-container"}>
       <Nav />
       <Sidebar />
       <main id="AddEmployee">

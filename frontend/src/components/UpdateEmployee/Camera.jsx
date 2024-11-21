@@ -16,7 +16,7 @@ const Camera = ({ onFileChange,preview,setPreview }) => {
       const reader = new FileReader();
       reader.onload = () => setPreview(reader.result);
       reader.readAsDataURL(file);
-      onFileChange(file); // Send the file to the parent component
+      onFileChange(file); 
     }
   };
 

@@ -3,7 +3,7 @@ import InputField from './InputField';
 import SelectField from './SelectField';
 
 const AddForm = ({ register, errors }) => {
-  // Options for dropdown fields
+  
   const departmentOptions = [
     { value: 'Design', label: 'Design' },
     { value: 'Development', label: 'Development' },
